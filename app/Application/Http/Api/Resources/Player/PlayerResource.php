@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Api\Resources\Player;
+namespace App\Application\Http\Api\Resources\Player;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

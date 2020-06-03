@@ -2,7 +2,7 @@
 
 namespace App\Application\Http\Api\Resources\Team;
 
-use App\Http\Api\Resources\Player\PlayerResource;
+use App\Application\Http\Api\Resources\Player\PlayerResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamResource extends JsonResource
