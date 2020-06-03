@@ -2,8 +2,11 @@
 
 namespace App\Application\Http\Api\Controllers;
 
+use App\Application\Http\Api\Requests\Player\CreatePlayerRequest;
+use App\Application\Http\Api\Requests\Player\UpdatePlayerRequest;
+use App\Domain\Player\Actions\CreatePlayerAction;
+use App\Domain\Player\Actions\UpdatePlayerAction;
 use App\Domain\Player\Models\Player;
-use Illuminate\Http\Request;
 
 class PlayerController extends Controller
 {
@@ -20,17 +23,19 @@ class PlayerController extends Controller
         return $player;
     }
 
-    public function store(Request $request)
+    public function update(UpdatePlayerRequest $request, Player $player)
     {
-        $company = Player::create($request->all());
-        return $company;
+        $updatePlayerAction = new UpdatePlayerAction($player, $request->getDto());
+        $player = $updatePlayerAction->execute();
+
+        return $player;
     }
 
-    public function update(Request $request, $id)
+    public function store(CreatePlayerRequest $request)
     {
-        $company = Player::findOrFail($id);
-        $company->update($request->all());
+        $createPlayerAction = new CreatePlayerAction($request->getDto());
+        $player = $createPlayerAction->execute();
 
-        return $company;
+        return $player;
     }
 }

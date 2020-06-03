@@ -5,8 +5,9 @@
         </div>
 
         <div class="card">
-            <div class="card-header">Edit {{ player.first_name }}</div>
+            <div class="card-header">Edit Player</div>
             <div class="card-body">
+                <validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
                 <form @submit.prevent="saveForm()">
                         <div class="form-group row">
                             <div class="col-md-6">
@@ -30,18 +31,26 @@
     </div>
 </template>
 <script>
+  import ValidationErrors from '../ValidationErrors.vue';
   import { mapGetters } from 'vuex';
   import {
     FETCH_PLAYER,
     CHANGE_PLAYER
   } from '../../store/player/types';
+  import {
+    UPDATE_PLAYER_IN_PLAYERS,
+  } from '../../store/players/types';
   export default {
     data() {
       return {
-        loaded: false
+        loaded: false,
+        validationErrors: false
       }
     },
-    async created() {
+    components: {
+      ValidationErrors
+    },
+    async mounted() {
       let id = this.$route.params.id;
       await this.$store.dispatch(FETCH_PLAYER, { id });
       this.loaded = true;
@@ -55,9 +64,11 @@
     methods: {
       async saveForm() {
         const data = await this.$store.dispatch(CHANGE_PLAYER, { id: this.$route.params.id, player: this.player });
-        // todo do some alert
-        if (data) {
-          this.$router.push({ name: 'showTeam', params: { id: this.player.team_id } });
+        if (data && data.hasOwnProperty('err')){
+          this.validationErrors = data.err.data.errors;
+        } else {
+          this.$store.dispatch(UPDATE_PLAYER_IN_PLAYERS, data);
+          this.$router.push({ name: 'showTeam', params: { id: this.player.team_id }  });
         }
       }
     }

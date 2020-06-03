@@ -4,7 +4,7 @@
             <div class="container">
                 <ul class="navbar-nav mr-auto">
                     <router-link :to="{ name: 'home' }" tag="li" class="nav-link">Home</router-link>
-                    <router-link :to="{ name: 'teams' }" tag="li" class="nav-link">Teams</router-link>
+                    <router-link :to="{ name: 'teams' }" tag="li" class="nav-link" :active-class="$route.path.includes('/teams') ? 'router-link-active router-link-exact-active' : ''">Teams</router-link>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown"  v-if="authenticated && user">

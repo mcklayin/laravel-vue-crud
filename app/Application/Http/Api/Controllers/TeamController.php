@@ -5,21 +5,28 @@ namespace App\Application\Http\Api\Controllers;
 use App\Application\Http\Api\Requests\Team\DeleteTeamRequest;
 use App\Application\Http\Api\Requests\Team\UpdateTeamRequest;
 use App\Domain\Team\Actions\CreateTeamAction;
+use App\Domain\Team\Actions\GetTeamAction;
+use App\Domain\Team\Actions\GetTeamsAction;
 use App\Domain\Team\Actions\UpdateTeamAction;
 use App\Domain\Team\Actions\DeleteTeamAction;
 use App\Domain\Team\Models\Team;
 use App\Application\Http\Api\Requests\Team\CreateTeamRequest;
+use App\Application\Http\Api\Resources\Team\TeamCollection;
+use App\Application\Http\Api\Resources\Team\TeamResource;
 
 class TeamController extends Controller
 {
     public function index()
     {
-        return Team::all();
+        $getTeamsAction = new GetTeamsAction();
+
+        return new TeamCollection($getTeamsAction->execute());
     }
 
     public function show(Team $team)
     {
-        return $team;
+        $getTeamAction = new GetTeamAction($team);
+        return new TeamResource($getTeamAction->execute());
     }
 
     public function update(UpdateTeamRequest $request, Team $team)

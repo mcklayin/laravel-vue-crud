@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-header">Add Player</div>
                 <div class="card-body">
+                    <validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
                     <form v-on:submit="saveForm()">
                         <div class="form-group row">
                             <div class="col-md-6">
@@ -32,17 +33,27 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import ValidationErrors from '../ValidationErrors.vue';
   import {
     NEW_PLAYER,
-    FETCH_PLAYER
   } from '../../store/player/types';
+  import {
+    ADD_TO_PLAYERS,
+  } from '../../store/players/types';
   export default {
-    computed: {
-      ...mapGetters({
-        player: FETCH_PLAYER,
-      })
+    data() {
+      return {
+        player: {
+          first_name: '',
+          last_name: ''
+        },
+        validationErrors: false
+      };
     },
+    components: {
+      ValidationErrors
+    },
+    computed: {},
     methods: {
       teamId() {
         return this.$route.params.teamId;
@@ -50,8 +61,10 @@
       async saveForm () {
         this.player.team_id = this.teamId();
         const data = await this.$store.dispatch(NEW_PLAYER, { player: this.player });
-        // todo some alert
-        if (data) {
+        if (data && data.hasOwnProperty('err')){
+          this.validationErrors = data.err.data.errors;
+        } else {
+          this.$store.dispatch(ADD_TO_PLAYERS, data);
           this.$router.push({ name: 'showTeam', params: { id: this.player.team_id }  });
         }
       }

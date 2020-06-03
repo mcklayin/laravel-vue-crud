@@ -27,7 +27,7 @@
         loaded: false
       };
     },
-    created() {
+    mounted() {
       this.getTeamWithPlayers();
       this.loaded = true;
     },
@@ -41,10 +41,12 @@
         return parseInt(this.$route.params.id);
       },
      async getTeamWithPlayers() {
-       const data = await this.$store.dispatch(FETCH_TEAM_WITH_PLAYERS, { id: this.id() });
+       if (!this.team.players) {
+         const data = await this.$store.dispatch(FETCH_TEAM_WITH_PLAYERS, { id: this.id() });
 
-       if (data && data.players) {
-         this.$store.commit(SET_PLAYERS, data.players );
+         if (data && data.players) {
+           this.$store.commit(SET_PLAYERS, data.players );
+         }
        }
       },
     }

@@ -13,18 +13,19 @@ export default {
       const { data } = await api.call('get', `${API.GET_PLAYER(id)}`);
       if (data) {
         commit(SET_PLAYER, data);
+        return data;
       }
     } catch (e) {
       console.log(e);
     }
   },
 
-  async [NEW_PLAYER]({ dispatch, commit, rootState }, { team }) { // eslint-disable-line
+  async [NEW_PLAYER]({ dispatch, commit, rootState }, { player }) { // eslint-disable-line
     try {
-      const { data } = await api.call('post', `${API.CREATE_PLAYER}`, team);
+      const { data } = await api.call('post', `${API.CREATE_PLAYER}`, player);
       if (data) {
         commit(SET_PLAYER, data);
-        return { data };
+        return data;
       }
     } catch (err) {
       console.log(err);
@@ -32,12 +33,12 @@ export default {
     }
   },
 
-  async [CHANGE_PLAYER]({ dispatch, commit, rootState }, { id, team }) { // eslint-disable-line
+  async [CHANGE_PLAYER]({ dispatch, commit, rootState }, { id, player }) { // eslint-disable-line
     try {
-      const { data } = await api.call('put', `${API.UPDATE_PLAYER(id)}`, team);
+      const { data } = await api.call('put', `${API.UPDATE_PLAYER(id)}`, player);
       if (data) {
         commit(SET_PLAYER, data);
-        return { data };
+        return data;
       }
     } catch (err) {
       console.log(err);

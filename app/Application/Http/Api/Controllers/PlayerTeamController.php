@@ -2,14 +2,18 @@
 
 namespace App\Application\Http\Api\Controllers;
 
+use App\Application\Http\Api\Resources\Team\TeamResource;
+use App\Domain\Team\Actions\GetTeamAction;
 use App\Domain\Team\Models\Team;
-use Illuminate\Http\Request;
 
 class PlayerTeamController extends Controller
 {
     public function index(Team $team)
     {
         $team->load('players');
-        return $team;
+
+        $getTeamAction = new GetTeamAction($team);
+
+        return new TeamResource($getTeamAction->execute());
     }
 }

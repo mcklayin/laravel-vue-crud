@@ -12,7 +12,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Created Date</th>
-                        <th width="170">Actions</th>
+                        <th width="250">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,8 +56,10 @@
         teams: FETCH_TEAMS,
       })
     },
-    async created() {
-      await this.$store.dispatch(FETCH_TEAMS);
+    async mounted() {
+      if (this.teams.length === 0) {
+        await this.$store.dispatch(FETCH_TEAMS);
+      }
       this.loaded = true;
     },
     methods: {

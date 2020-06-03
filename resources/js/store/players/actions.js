@@ -3,6 +3,7 @@ import {
   FETCH_PLAYERS,
 } from './types';
 import * as API from '../../consts/api';
+import { ADD_TO_PLAYERS, UPDATE_PLAYER_IN_PLAYERS } from '../players/types'
 
 
 export default {
@@ -15,6 +16,22 @@ export default {
       }
     } catch (e) {
       console.log(e);
+    }
+  },
+
+  [ADD_TO_PLAYERS]({ dispatch, commit }, value) {
+    try {
+      commit(ADD_TO_PLAYERS, value);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  [UPDATE_PLAYER_IN_PLAYERS]({ dispatch, commit }, value) {
+    try {
+      commit(UPDATE_PLAYER_IN_PLAYERS, value);
+    } catch (err) {
+      console.log(err);
     }
   },
 };

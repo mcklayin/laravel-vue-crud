@@ -2020,10 +2020,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auth/Login.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2037,6 +2037,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ValidationErrors',
+  data: function data() {
+    return {};
+  },
+  props: ['errors'],
+  computed: {
+    validationErrors: function validationErrors() {
+      var errors = Object.values(this.errors);
+      errors = errors.flat();
+      return errors;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auth/Login.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ValidationErrors.vue */ "./resources/js/components/ValidationErrors.vue");
 //
 //
 //
@@ -2059,12 +2086,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      username: '',
-      password: ''
+      username: 'admin@gmail.com',
+      password: 'admin',
+      validationErrors: false
     };
+  },
+  components: {
+    ValidationErrors: _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     login: function login() {
@@ -2074,7 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
         username: this.username,
         password: this.password
       };
-      api.call('post', '/api/v1/login', data).then(function (_ref) {
+      api.call('post', '/login', data).then(function (_ref) {
         var data = _ref.data;
         auth.login(data.token, data.user);
 
@@ -2083,8 +2124,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'teams'
         });
-      })["catch"](function (_ref2) {
-        var response = _ref2.response;
+      })["catch"](function (response) {
+        _this.validationErrors = [response.data.message];
         console.log(response);
       });
     }
@@ -2104,59 +2145,66 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ValidationErrors.vue */ "./resources/js/components/ValidationErrors.vue");
 /* harmony import */ var _store_player_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/player/types */ "./resources/js/store/player/types.js");
+/* harmony import */ var _store_players_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/players/types */ "./resources/js/store/players/types.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    player: _store_player_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_PLAYER"]
-  })),
+  data: function data() {
+    return {
+      player: {
+        first_name: '',
+        last_name: ''
+      },
+      validationErrors: false
+    };
+  },
+  components: {
+    ValidationErrors: _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  computed: {},
   methods: {
     teamId: function teamId() {
       return this.$route.params.teamId;
@@ -2179,8 +2227,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 3:
                 data = _context.sent;
 
-                // todo some alert
-                if (data) {
+                if (data && data.hasOwnProperty('err')) {
+                  _this.validationErrors = data.err.data.errors;
+                } else {
+                  _this.$store.dispatch(_store_players_types__WEBPACK_IMPORTED_MODULE_3__["ADD_TO_PLAYERS"], data);
+
                   _this.$router.push({
                     name: 'showTeam',
                     params: {
@@ -2213,8 +2264,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _store_player_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/player/types */ "./resources/js/store/player/types.js");
+/* harmony import */ var _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ValidationErrors.vue */ "./resources/js/components/ValidationErrors.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store_player_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/player/types */ "./resources/js/store/player/types.js");
+/* harmony import */ var _store_players_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/players/types */ "./resources/js/store/players/types.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -2258,15 +2311,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      loaded: false
+      loaded: false,
+      validationErrors: false
     };
   },
-  created: function created() {
+  components: {
+    ValidationErrors: _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  mounted: function mounted() {
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2277,7 +2337,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               id = _this.$route.params.id;
               _context.next = 3;
-              return _this.$store.dispatch(_store_player_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_PLAYER"], {
+              return _this.$store.dispatch(_store_player_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_PLAYER"], {
                 id: id
               });
 
@@ -2292,8 +2352,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee);
     }))();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    player: _store_player_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_PLAYER"]
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    player: _store_player_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_PLAYER"]
   })),
   methods: {
     saveForm: function saveForm() {
@@ -2306,7 +2366,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.$store.dispatch(_store_player_types__WEBPACK_IMPORTED_MODULE_2__["CHANGE_PLAYER"], {
+                return _this2.$store.dispatch(_store_player_types__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PLAYER"], {
                   id: _this2.$route.params.id,
                   player: _this2.player
                 });
@@ -2314,8 +2374,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 data = _context2.sent;
 
-                // todo do some alert
-                if (data) {
+                if (data && data.hasOwnProperty('err')) {
+                  _this2.validationErrors = data.err.data.errors;
+                } else {
+                  _this2.$store.dispatch(_store_players_types__WEBPACK_IMPORTED_MODULE_4__["UPDATE_PLAYER_IN_PLAYERS"], data);
+
                   _this2.$router.push({
                     name: 'showTeam',
                     params: {
@@ -2396,7 +2459,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: {
     teamId: Number
   },
-  created: function created() {},
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     players: _store_players_types__WEBPACK_IMPORTED_MODULE_1__["FETCH_PLAYERS"]
   })),
@@ -2416,7 +2478,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store_team_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../store/team/types */ "./resources/js/store/team/types.js");
+/* harmony import */ var _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ValidationErrors.vue */ "./resources/js/components/ValidationErrors.vue");
+/* harmony import */ var _store_team_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/team/types */ "./resources/js/store/team/types.js");
+/* harmony import */ var _store_teams_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/teams/types */ "./resources/js/store/teams/types.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2450,11 +2514,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ValidationErrors: _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
-      team: this.$store.state.team
+      team: {
+        name: ''
+      },
+      validationErrors: false
     };
   },
   methods: {
@@ -2468,15 +2541,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_1__["NEW_TEAM"], {
+                return _this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_2__["NEW_TEAM"], {
                   team: _this.team
                 });
 
               case 2:
                 data = _context.sent;
 
-                // todo some alert
-                if (data) {
+                if (data && data.hasOwnProperty('err')) {
+                  _this.validationErrors = data.err.data.errors;
+                } else {
+                  _this.$store.dispatch(_store_teams_types__WEBPACK_IMPORTED_MODULE_3__["ADD_TO_TEAMS"], data);
+
                   _this.$router.push({
                     name: 'teams'
                   });
@@ -2507,12 +2583,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _store_team_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/team/types */ "./resources/js/store/team/types.js");
+/* harmony import */ var _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ValidationErrors.vue */ "./resources/js/components/ValidationErrors.vue");
+/* harmony import */ var _store_team_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/team/types */ "./resources/js/store/team/types.js");
+/* harmony import */ var _store_teams_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/teams/types */ "./resources/js/store/teams/types.js");
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -2520,6 +2594,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2545,50 +2623,85 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ValidationErrors: _ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      loaded: false,
+      validationErrors: false
+    };
+  },
   created: function created() {
-    var id = this.$route.params.id;
-    this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_TEAM"], {
-      id: id
-    });
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var id;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              id = _this.$route.params.id;
+              _context.next = 3;
+              return _this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_TEAM"], {
+                id: id
+              });
+
+            case 3:
+              _this.loaded = true;
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    team: _store_team_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_TEAM"]
+    team: _store_team_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_TEAM"]
   })),
   methods: {
     saveForm: function saveForm() {
-      var _this = this;
+      var _this2 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
-                return _this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_2__["CHANGE_TEAM"], {
-                  id: _this.$route.params.id,
-                  team: _this.team
+                _context2.next = 2;
+                return _this2.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_3__["CHANGE_TEAM"], {
+                  id: _this2.$route.params.id,
+                  team: _this2.team
                 });
 
               case 2:
-                data = _context.sent;
+                data = _context2.sent;
 
-                // todo do some alert
-                if (data) {
-                  _this.$router.push({
+                if (data && data.hasOwnProperty('err')) {
+                  _this2.validationErrors = data.err.data.errors;
+                } else {
+                  _this2.$store.dispatch(_store_teams_types__WEBPACK_IMPORTED_MODULE_4__["UPDATE_TEAM_IN_TEAMS"], data);
+
+                  _this2.$router.push({
                     name: 'teams'
                   });
                 }
 
               case 4:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     }
   }
@@ -2674,7 +2787,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     teams: _store_teams_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_TEAMS"]
   })),
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2682,13 +2795,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              if (!(_this.teams.length === 0)) {
+                _context.next = 3;
+                break;
+              }
+
+              _context.next = 3;
               return _this.$store.dispatch(_store_teams_types__WEBPACK_IMPORTED_MODULE_2__["FETCH_TEAMS"]);
 
-            case 2:
+            case 3:
               _this.loaded = true;
 
-            case 3:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2757,7 +2875,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       loaded: false
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.getTeamWithPlayers();
     this.loaded = true;
   },
@@ -2777,19 +2895,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (_this.team.players) {
+                  _context.next = 5;
+                  break;
+                }
+
+                _context.next = 3;
                 return _this.$store.dispatch(_store_team_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_TEAM_WITH_PLAYERS"], {
                   id: _this.id()
                 });
 
-              case 2:
+              case 3:
                 data = _context.sent;
 
                 if (data && data.players) {
                   _this.$store.commit(_store_players_types__WEBPACK_IMPORTED_MODULE_4__["SET_PLAYERS"], data.players);
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -39146,7 +39269,13 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "nav-link",
-                  attrs: { to: { name: "teams" }, tag: "li" }
+                  attrs: {
+                    to: { name: "teams" },
+                    tag: "li",
+                    "active-class": _vm.$route.path.includes("/teams")
+                      ? "router-link-active router-link-exact-active"
+                      : ""
+                  }
                 },
                 [_vm._v("Teams")]
               )
@@ -39232,6 +39361,41 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.validationErrors
+    ? _c("div", [
+        _c(
+          "ul",
+          { staticClass: "alert alert-danger" },
+          _vm._l(_vm.validationErrors, function(value, key, index) {
+            return _c("li", [_vm._v(_vm._s(value))])
+          }),
+          0
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=template&id=4221c3ad&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auth/Login.vue?vue&type=template&id=4221c3ad& ***!
@@ -39252,96 +39416,107 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.login($event)
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.validationErrors
+              ? _c("validation-errors", {
+                  attrs: { errors: _vm.validationErrors }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.login($event)
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "control-label",
-                      attrs: { for: "username" }
-                    },
-                    [_vm._v("Email")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "label",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.username,
-                        expression: "username"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "username", name: "username" },
-                    domProps: { value: _vm.username },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                        staticClass: "control-label",
+                        attrs: { for: "username" }
+                      },
+                      [_vm._v("Email")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.username,
+                          expression: "username"
                         }
-                        _vm.username = $event.target.value
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "username", name: "username" },
+                      domProps: { value: _vm.username },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.username = $event.target.value
+                        }
                       }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "control-label",
-                      attrs: { for: "password" }
-                    },
-                    [_vm._v("Password")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "label",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.password,
-                        expression: "password"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      id: "password",
-                      name: "password"
-                    },
-                    domProps: { value: _vm.password },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                        staticClass: "control-label",
+                        attrs: { for: "password" }
+                      },
+                      [_vm._v("Password")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.password,
+                          expression: "password"
                         }
-                        _vm.password = $event.target.value
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "password",
+                        id: "password",
+                        name: "password"
+                      },
+                      domProps: { value: _vm.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.password = $event.target.value
+                        }
                       }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          )
-        ])
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -39395,81 +39570,96 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Add Player")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  return _vm.saveForm()
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.validationErrors
+              ? _c("validation-errors", {
+                  attrs: { errors: _vm.validationErrors }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    return _vm.saveForm()
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Player first name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.player.first_name,
-                        expression: "player.first_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.player.first_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Player first name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.player.first_name,
+                          expression: "player.first_name"
                         }
-                        _vm.$set(_vm.player, "first_name", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Player last name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.player.last_name,
-                        expression: "player.last_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.player.last_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.player.first_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.player,
+                            "first_name",
+                            $event.target.value
+                          )
                         }
-                        _vm.$set(_vm.player, "last_name", $event.target.value)
                       }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          )
-        ])
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Player last name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.player.last_name,
+                          expression: "player.last_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.player.last_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.player, "last_name", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -39532,86 +39722,99 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _vm._v("Edit " + _vm._s(_vm.player.first_name))
-        ]),
+        _c("div", { staticClass: "card-header" }, [_vm._v("Edit Player")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.saveForm()
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.validationErrors
+              ? _c("validation-errors", {
+                  attrs: { errors: _vm.validationErrors }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.saveForm()
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Player first name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.player.first_name,
-                        expression: "player.first_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.player.first_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Player first name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.player.first_name,
+                          expression: "player.first_name"
                         }
-                        _vm.$set(_vm.player, "first_name", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Player last name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.player.last_name,
-                        expression: "player.last_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.player.last_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.player.first_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.player,
+                            "first_name",
+                            $event.target.value
+                          )
                         }
-                        _vm.$set(_vm.player, "last_name", $event.target.value)
                       }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          )
-        ])
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Player last name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.player.last_name,
+                          expression: "player.last_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.player.last_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.player, "last_name", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ],
+          1
+        )
       ])
     ]
   )
@@ -39772,51 +39975,62 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Create new Team")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  return _vm.saveForm()
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.validationErrors
+              ? _c("validation-errors", {
+                  attrs: { errors: _vm.validationErrors }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    return _vm.saveForm()
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Team name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.team.name,
-                        expression: "team.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.team.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Team name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.team.name,
+                          expression: "team.name"
                         }
-                        _vm.$set(_vm.team, "name", $event.target.value)
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.team.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.team, "name", $event.target.value)
+                        }
                       }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          )
-        ])
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -39852,71 +40066,95 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-primary", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("Edit")]),
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loaded,
+          expression: "loaded"
+        }
+      ]
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "btn btn-primary", attrs: { to: "/" } },
+            [_vm._v("Back")]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Edit")]),
+        _vm._v(" "),
         _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.saveForm()
-              }
-            }
-          },
+          "div",
+          { staticClass: "card-body" },
           [
-            _c("div", { staticClass: "form-group row" }, [
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Team name")
+            _vm.validationErrors
+              ? _c("validation-errors", {
+                  attrs: { errors: _vm.validationErrors }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.saveForm()
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("label", { staticClass: "control-label" }, [
+                      _vm._v("Team name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.team.name,
+                          expression: "team.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.team.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.team, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.name,
-                      expression: "team.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
+                _vm._m(0)
+              ]
+            )
+          ],
+          1
         )
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -40067,7 +40305,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Created Date")]),
         _vm._v(" "),
-        _c("th", { attrs: { width: "170" } }, [_vm._v("Actions")])
+        _c("th", { attrs: { width: "250" } }, [_vm._v("Actions")])
       ])
     ])
   }
@@ -56466,7 +56704,7 @@ var Api = /*#__PURE__*/function () {
         })["catch"](function (_ref) {
           var response = _ref.response;
 
-          if (response.status === 401) {
+          if (response && response.status === 401) {
             auth.logout();
           }
 
@@ -56784,6 +57022,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_e245f756___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_e245f756___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ValidationErrors.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ValidationErrors.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ValidationErrors.vue?vue&type=template&id=757df5af& */ "./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af&");
+/* harmony import */ var _ValidationErrors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ValidationErrors.vue?vue&type=script&lang=js& */ "./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ValidationErrors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ValidationErrors.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ValidationErrors.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ValidationErrors.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ValidationErrors.vue?vue&type=template&id=757df5af& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ValidationErrors.vue?vue&type=template&id=757df5af&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_757df5af___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -57566,38 +57873,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _yield$api$call = _context.sent;
             data = _yield$api$call.data;
 
-            if (data) {
-              commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER"], data);
+            if (!data) {
+              _context.next = 10;
+              break;
             }
 
-            _context.next = 13;
-            break;
+            commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER"], data);
+            return _context.abrupt("return", data);
 
           case 10:
-            _context.prev = 10;
+            _context.next = 15;
+            break;
+
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context["catch"](2);
             console.log(_context.t0);
 
-          case 13:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[2, 10]]);
+    }, _callee, null, [[2, 12]]);
   }))();
 }), _defineProperty(_FETCH_PLAYER$NEW_PLA, _types__WEBPACK_IMPORTED_MODULE_1__["NEW_PLAYER"], function (_ref3, _ref4) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-    var dispatch, commit, rootState, team, _yield$api$call2, data;
+    var dispatch, commit, rootState, player, _yield$api$call2, data;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             dispatch = _ref3.dispatch, commit = _ref3.commit, rootState = _ref3.rootState;
-            team = _ref4.team;
+            player = _ref4.player;
             _context2.prev = 2;
             _context2.next = 5;
-            return api.call('post', "".concat(_consts_api__WEBPACK_IMPORTED_MODULE_2__["CREATE_PLAYER"]), team);
+            return api.call('post', "".concat(_consts_api__WEBPACK_IMPORTED_MODULE_2__["CREATE_PLAYER"]), player);
 
           case 5:
             _yield$api$call2 = _context2.sent;
@@ -57609,9 +57921,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
 
             commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER"], data);
-            return _context2.abrupt("return", {
-              data: data
-            });
+            return _context2.abrupt("return", data);
 
           case 10:
             _context2.next = 16;
@@ -57634,17 +57944,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   }))();
 }), _defineProperty(_FETCH_PLAYER$NEW_PLA, _types__WEBPACK_IMPORTED_MODULE_1__["CHANGE_PLAYER"], function (_ref5, _ref6) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-    var dispatch, commit, rootState, id, team, _yield$api$call3, data;
+    var dispatch, commit, rootState, id, player, _yield$api$call3, data;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             dispatch = _ref5.dispatch, commit = _ref5.commit, rootState = _ref5.rootState;
-            id = _ref6.id, team = _ref6.team;
+            id = _ref6.id, player = _ref6.player;
             _context3.prev = 2;
             _context3.next = 5;
-            return api.call('put', "".concat(_consts_api__WEBPACK_IMPORTED_MODULE_2__["UPDATE_PLAYER"](id)), team);
+            return api.call('put', "".concat(_consts_api__WEBPACK_IMPORTED_MODULE_2__["UPDATE_PLAYER"](id)), player);
 
           case 5:
             _yield$api$call3 = _context3.sent;
@@ -57656,9 +57966,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
 
             commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER"], data);
-            return _context3.abrupt("return", {
-              data: data
-            });
+            return _context3.abrupt("return", data);
 
           case 10:
             _context3.next = 16;
@@ -57787,6 +58095,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _consts_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../consts/api */ "./resources/js/consts/api.js");
 
 
+var _FETCH_PLAYERS$ADD_TO;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -57795,7 +58105,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_PLAYERS"], function (_ref) {
+
+/* harmony default export */ __webpack_exports__["default"] = (_FETCH_PLAYERS$ADD_TO = {}, _defineProperty(_FETCH_PLAYERS$ADD_TO, _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_PLAYERS"], function (_ref) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var commit, dispatch, _yield$api$call, data;
 
@@ -57831,7 +58142,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     }, _callee, null, [[1, 9]]);
   }))();
-}));
+}), _defineProperty(_FETCH_PLAYERS$ADD_TO, _types__WEBPACK_IMPORTED_MODULE_1__["ADD_TO_PLAYERS"], function (_ref2, value) {
+  var dispatch = _ref2.dispatch,
+      commit = _ref2.commit;
+
+  try {
+    commit(_types__WEBPACK_IMPORTED_MODULE_1__["ADD_TO_PLAYERS"], value);
+  } catch (err) {
+    console.log(err);
+  }
+}), _defineProperty(_FETCH_PLAYERS$ADD_TO, _types__WEBPACK_IMPORTED_MODULE_1__["UPDATE_PLAYER_IN_PLAYERS"], function (_ref3, value) {
+  var dispatch = _ref3.dispatch,
+      commit = _ref3.commit;
+
+  try {
+    commit(_types__WEBPACK_IMPORTED_MODULE_1__["UPDATE_PLAYER_IN_PLAYERS"], value);
+  } catch (err) {
+    console.log(err);
+  }
+}), _FETCH_PLAYERS$ADD_TO);
 
 /***/ }),
 
@@ -57890,12 +58219,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/store/players/types.js");
+var _SET_PLAYERS$ADD_TO_P;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _types__WEBPACK_IMPORTED_MODULE_0__["SET_PLAYERS"], function (state, data) {
+/* harmony default export */ __webpack_exports__["default"] = (_SET_PLAYERS$ADD_TO_P = {}, _defineProperty(_SET_PLAYERS$ADD_TO_P, _types__WEBPACK_IMPORTED_MODULE_0__["SET_PLAYERS"], function (state, data) {
   state.players = data;
-}));
+}), _defineProperty(_SET_PLAYERS$ADD_TO_P, _types__WEBPACK_IMPORTED_MODULE_0__["ADD_TO_PLAYERS"], function (state, data) {
+  state.players.push(data);
+}), _defineProperty(_SET_PLAYERS$ADD_TO_P, _types__WEBPACK_IMPORTED_MODULE_0__["UPDATE_PLAYER_IN_PLAYERS"], function (state, data) {
+  state.players = state.players.map(function (item) {
+    if (item.id === data.id) {
+      item = data;
+    }
+
+    return item;
+  });
+}), _SET_PLAYERS$ADD_TO_P);
 
 /***/ }),
 
@@ -57903,16 +58244,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /*!*********************************************!*\
   !*** ./resources/js/store/players/types.js ***!
   \*********************************************/
-/*! exports provided: FETCH_PLAYERS, SET_PLAYERS */
+/*! exports provided: FETCH_PLAYERS, SET_PLAYERS, ADD_TO_PLAYERS, UPDATE_PLAYER_IN_PLAYERS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_PLAYERS", function() { return FETCH_PLAYERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PLAYERS", function() { return SET_PLAYERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_TO_PLAYERS", function() { return ADD_TO_PLAYERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_PLAYER_IN_PLAYERS", function() { return UPDATE_PLAYER_IN_PLAYERS; });
 var moduleTeams = 'PLAYERS';
 var FETCH_PLAYERS = "".concat(moduleTeams, "/FETCH_PLAYERS");
 var SET_PLAYERS = "".concat(moduleTeams, "/SET_PLAYERS");
+var ADD_TO_PLAYERS = "".concat(moduleTeams, "/ADD_TO_PLAYERS");
+var UPDATE_PLAYER_IN_PLAYERS = "".concat(moduleTeams, "/UPDATE_PLAYER_IN_PLAYERS");
 
 /***/ }),
 
@@ -57957,7 +58302,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           case 5:
             _yield$api$call = _context.sent;
-            data = _yield$api$call.data;
+            data = _yield$api$call.data.data;
 
             if (!data) {
               _context.next = 10;
@@ -57999,7 +58344,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           case 5:
             _yield$api$call2 = _context2.sent;
-            data = _yield$api$call2.data;
+            data = _yield$api$call2.data.data;
 
             if (!data) {
               _context2.next = 10;
@@ -58049,9 +58394,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
 
             commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_TEAM"], data);
-            return _context3.abrupt("return", {
-              data: data
-            });
+            return _context3.abrupt("return", data);
 
           case 10:
             _context3.next = 16;
@@ -58096,9 +58439,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
 
             commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_TEAM"], data);
-            return _context4.abrupt("return", {
-              data: data
-            });
+            return _context4.abrupt("return", data);
 
           case 10:
             _context4.next = 16;
@@ -58143,9 +58484,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
 
             commit(_types__WEBPACK_IMPORTED_MODULE_1__["SET_TEAM"], data);
-            return _context5.abrupt("return", {
-              data: data
-            });
+            return _context5.abrupt("return", data);
 
           case 10:
             _context5.next = 16;
@@ -58280,6 +58619,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _consts_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../consts/api */ "./resources/js/consts/api.js");
 
 
+var _FETCH_TEAMS$ADD_TO_T;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -58288,7 +58629,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_TEAMS"], function (_ref) {
+/* harmony default export */ __webpack_exports__["default"] = (_FETCH_TEAMS$ADD_TO_T = {}, _defineProperty(_FETCH_TEAMS$ADD_TO_T, _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_TEAMS"], function (_ref) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var commit, dispatch, _yield$api$call, data;
 
@@ -58303,7 +58644,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           case 4:
             _yield$api$call = _context.sent;
-            data = _yield$api$call.data;
+            data = _yield$api$call.data.data;
 
             if (!data) {
               _context.next = 9;
@@ -58329,7 +58670,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     }, _callee, null, [[1, 11]]);
   }))();
-}));
+}), _defineProperty(_FETCH_TEAMS$ADD_TO_T, _types__WEBPACK_IMPORTED_MODULE_1__["ADD_TO_TEAMS"], function (_ref2, value) {
+  var dispatch = _ref2.dispatch,
+      commit = _ref2.commit;
+
+  try {
+    commit(_types__WEBPACK_IMPORTED_MODULE_1__["ADD_TO_TEAMS"], value);
+  } catch (err) {
+    console.log(err);
+  }
+}), _defineProperty(_FETCH_TEAMS$ADD_TO_T, _types__WEBPACK_IMPORTED_MODULE_1__["UPDATE_TEAM_IN_TEAMS"], function (_ref3, value) {
+  var dispatch = _ref3.dispatch,
+      commit = _ref3.commit;
+
+  try {
+    commit(_types__WEBPACK_IMPORTED_MODULE_1__["UPDATE_TEAM_IN_TEAMS"], value);
+  } catch (err) {
+    console.log(err);
+  }
+}), _FETCH_TEAMS$ADD_TO_T);
 
 /***/ }),
 
@@ -58388,12 +58747,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/store/teams/types.js");
+var _SET_TEAMS$ADD_TO_TEA;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _types__WEBPACK_IMPORTED_MODULE_0__["SET_TEAMS"], function (state, data) {
+/* harmony default export */ __webpack_exports__["default"] = (_SET_TEAMS$ADD_TO_TEA = {}, _defineProperty(_SET_TEAMS$ADD_TO_TEA, _types__WEBPACK_IMPORTED_MODULE_0__["SET_TEAMS"], function (state, data) {
   state.teams = data;
-}));
+}), _defineProperty(_SET_TEAMS$ADD_TO_TEA, _types__WEBPACK_IMPORTED_MODULE_0__["ADD_TO_TEAMS"], function (state, data) {
+  state.teams.push(data);
+}), _defineProperty(_SET_TEAMS$ADD_TO_TEA, _types__WEBPACK_IMPORTED_MODULE_0__["UPDATE_TEAM_IN_TEAMS"], function (state, data) {
+  state.teams = state.teams.map(function (item) {
+    if (item.id === data.id) {
+      item = data;
+    }
+
+    return item;
+  });
+}), _SET_TEAMS$ADD_TO_TEA);
 
 /***/ }),
 
@@ -58401,16 +58772,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /*!*******************************************!*\
   !*** ./resources/js/store/teams/types.js ***!
   \*******************************************/
-/*! exports provided: FETCH_TEAMS, SET_TEAMS */
+/*! exports provided: FETCH_TEAMS, SET_TEAMS, ADD_TO_TEAMS, UPDATE_TEAM_IN_TEAMS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_TEAMS", function() { return FETCH_TEAMS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TEAMS", function() { return SET_TEAMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_TO_TEAMS", function() { return ADD_TO_TEAMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TEAM_IN_TEAMS", function() { return UPDATE_TEAM_IN_TEAMS; });
 var moduleTeams = 'TEAMS';
 var FETCH_TEAMS = "".concat(moduleTeams, "/FETCH_TEAMS");
 var SET_TEAMS = "".concat(moduleTeams, "/SET_TEAMS");
+var ADD_TO_TEAMS = "".concat(moduleTeams, "/ADD_TO_TEAMS");
+var UPDATE_TEAM_IN_TEAMS = "".concat(moduleTeams, "/UPDATE_TEAM_IN_TEAMS");
 
 /***/ }),
 

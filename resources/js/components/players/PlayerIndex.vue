@@ -43,9 +43,6 @@
     props: {
       teamId: Number
     },
-    created() {
-
-    },
     computed: {
       ...mapGetters({
         players: FETCH_PLAYERS,

@@ -12,7 +12,7 @@ import * as API from '../../consts/api';
 export default {
   async [FETCH_TEAM] ({ commit, dispatch }, { id }) {
     try {
-      const { data } = await api.call('get', `${API.GET_TEAM(id)}`);
+      const { data: { data } } = await api.call('get', `${API.GET_TEAM(id)}`);
       if (data) {
         commit(SET_TEAM, data);
 
@@ -25,7 +25,7 @@ export default {
 
   async [FETCH_TEAM_WITH_PLAYERS] ({ commit, dispatch }, { id }) {
     try {
-      const { data } = await api.call('get', `${API.GET_TEAM_WITH_PLAYERS(id)}`);
+      const { data: { data } } = await api.call('get', `${API.GET_TEAM_WITH_PLAYERS(id)}`);
       if (data) {
         commit(SET_TEAM, data);
 
@@ -41,7 +41,7 @@ export default {
       const { data } = await api.call('post', `${API.CREATE_TEAM}`, team);
       if (data) {
         commit(SET_TEAM, data);
-        return { data };
+        return data;
       }
     } catch (err) {
       console.log(err);
@@ -54,7 +54,7 @@ export default {
       const { data } = await api.call('put', `${API.UPDATE_TEAM(id)}`, team);
       if (data) {
         commit(SET_TEAM, data);
-        return { data };
+        return data;
       }
     } catch (err) {
       console.log(err);
@@ -67,7 +67,7 @@ export default {
       const { data } = await api.call('delete', `${API.DELETE_TEAM(id)}`);
       if (data) {
         commit(SET_TEAM, data);
-        return { data };
+        return data;
       }
     } catch (err) {
       console.log(err);

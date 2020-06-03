@@ -5,6 +5,7 @@
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
+                    <validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
                     <form @submit.prevent="login">
                         <div class="form-group row">
                             <div class="col-md-6">
@@ -29,14 +30,18 @@
 </template>
 
 <script>
+  import ValidationErrors from '../ValidationErrors.vue';
   export default {
     data() {
       return {
-        username: '',
-        password: '',
+        username: 'admin@gmail.com',
+        password: 'admin',
+        validationErrors: false
       };
     },
-
+    components: {
+      ValidationErrors
+    },
     methods: {
       login() {
         let data = {
@@ -44,13 +49,14 @@
           password: this.password
         };
 
-        api.call('post', '/api/v1/login', data)
+        api.call('post', '/login', data)
         .then(({data}) => {
           auth.login(data.token, data.user);
           this.$emit('userLoggedIn', data.user);
           this.$router.push({ name: 'teams' })
         })
-        .catch(({response}) => {
+        .catch((response) => {
+          this.validationErrors = [response.data.message];
           console.log(response);
         });
       }

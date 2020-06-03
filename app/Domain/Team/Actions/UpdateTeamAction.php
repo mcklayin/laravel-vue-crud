@@ -39,6 +39,8 @@ class UpdateTeamAction
     public function execute()
     {
         // The business logic goes here & catch errors
-        return $this->team->update($this->data->toArray());
+        $this->team->update($this->data->toArray());
+
+        return $this->team;
     }
 }
