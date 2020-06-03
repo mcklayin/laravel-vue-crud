@@ -1,5 +1,12 @@
 <template>
     <div v-show="loaded">
+        <div class="form-group">
+            <button
+                    type="button"
+                    @click="$router.go(-1)" class="btn btn-primary">&laquo;
+                Back
+            </button>
+        </div>
         <div class="card">
             <div class="card-header">Team {{ team.name }} Players</div>
             <div class="card-body" v-if="team.players">

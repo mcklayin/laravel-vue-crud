@@ -4,23 +4,27 @@ namespace App\Application\Http\Api\Controllers;
 
 use App\Application\Http\Api\Requests\Player\CreatePlayerRequest;
 use App\Application\Http\Api\Requests\Player\UpdatePlayerRequest;
+use App\Application\Http\Api\Resources\Player\PlayerCollection;
+use App\Application\Http\Api\Resources\Player\PlayerResource;
 use App\Domain\Player\Actions\CreatePlayerAction;
+use App\Domain\Player\Actions\GetPlayerAction;
+use App\Domain\Player\Actions\GetPlayersAction;
 use App\Domain\Player\Actions\UpdatePlayerAction;
 use App\Domain\Player\Models\Player;
 
 class PlayerController extends Controller
 {
-    /**
-     * @return Player[]|\Illuminate\Database\Eloquent\Collection
-     */
+
     public function index()
     {
-        return Player::all();
+        $gePlayersAction = new GetPlayersAction();
+        return new PlayerCollection($gePlayersAction->execute());
     }
 
     public function show(Player $player)
     {
-        return $player;
+        $getPlayerAction = new GetPlayerAction($player);
+        return new PlayerResource($getPlayerAction->execute());
     }
 
     public function update(UpdatePlayerRequest $request, Player $player)

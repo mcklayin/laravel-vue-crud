@@ -2191,6 +2191,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2283,6 +2287,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2518,6 +2526,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2601,6 +2613,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2854,6 +2870,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39557,18 +39580,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-md-12" }, [
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "btn btn-primary", attrs: { to: "/" } },
-            [_vm._v("Back")]
-          )
-        ],
-        1
-      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("«\n                Back\n            ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Add Player")]),
@@ -39711,18 +39737,21 @@ var render = function() {
       ]
     },
     [
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "btn btn-primary", attrs: { to: "/" } },
-            [_vm._v("Back")]
-          )
-        ],
-        1
-      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("«\n            Back\n        ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Edit Player")]),
@@ -39962,18 +39991,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-md-12" }, [
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "btn btn-primary", attrs: { to: "/" } },
-            [_vm._v("Back")]
-          )
-        ],
-        1
-      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("«\n                Back\n            ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Create new Team")]),
@@ -40082,18 +40114,21 @@ var render = function() {
       ]
     },
     [
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "btn btn-primary", attrs: { to: "/" } },
-            [_vm._v("Back")]
-          )
-        ],
-        1
-      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("«\n            Back\n        ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Edit")]),
@@ -40347,6 +40382,22 @@ var render = function() {
       ]
     },
     [
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("«\n            Back\n        ")]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [
           _vm._v("Team " + _vm._s(_vm.team.name) + " Players")
@@ -57874,7 +57925,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           case 5:
             _yield$api$call = _context.sent;
-            data = _yield$api$call.data;
+            data = _yield$api$call.data.data;
 
             if (!data) {
               _context.next = 10;

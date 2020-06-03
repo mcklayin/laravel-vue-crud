@@ -10,7 +10,7 @@ import * as API from '../../consts/api';
 export default {
   async [FETCH_PLAYER] ({ commit, dispatch }, { id }) {
     try {
-      const { data } = await api.call('get', `${API.GET_PLAYER(id)}`);
+      const { data: { data } } = await api.call('get', `${API.GET_PLAYER(id)}`);
       if (data) {
         commit(SET_PLAYER, data);
         return data;

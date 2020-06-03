@@ -2,7 +2,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <router-link to="/" class="btn btn-primary">Back</router-link>
+                <button
+                        type="button"
+                        @click="$router.go(-1)" class="btn btn-primary">&laquo;
+                    Back
+                </button>
             </div>
 
             <div class="card">

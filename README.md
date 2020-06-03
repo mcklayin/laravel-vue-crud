@@ -6,4 +6,4 @@
      [ ] - Move some actions caller from vue to actions
      [ ] - Split vue & js into different files
      [ ] - Add delete functionality
-     [ ] - Add missed conditions & validations
+     [ ] - Add missed conditions & validations & error handler

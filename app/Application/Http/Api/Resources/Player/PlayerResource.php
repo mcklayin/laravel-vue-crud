@@ -4,7 +4,7 @@ namespace App\Application\Http\Api\Resources\Player;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PLayerResource extends JsonResource
+class PlayerResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
