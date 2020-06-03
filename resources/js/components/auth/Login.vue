@@ -56,7 +56,10 @@
           this.$router.push({ name: 'teams' })
         })
         .catch((response) => {
-          this.validationErrors = [response.data.message];
+          if (response.hasOwnProperty('data')) {
+            this.validationErrors = [response.data.message];
+          }
+
           console.log(response);
         });
       }

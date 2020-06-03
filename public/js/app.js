@@ -2125,7 +2125,10 @@ __webpack_require__.r(__webpack_exports__);
           name: 'teams'
         });
       })["catch"](function (response) {
-        _this.validationErrors = [response.data.message];
+        if (response.hasOwnProperty('data')) {
+          _this.validationErrors = [response.data.message];
+        }
+
         console.log(response);
       });
     }
