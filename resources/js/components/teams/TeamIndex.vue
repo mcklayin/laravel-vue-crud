@@ -26,11 +26,11 @@
                             <router-link :to="{name: 'editTeam', params: {id: team.id}}" class="btn btn-xs btn-primary">
                                 Edit
                             </router-link>
-                            <a href="#"
+                            <!--<a href="#"
                                class="btn btn-xs btn-danger"
                                v-on:click="deleteEntry(team.id, index)">
                                 Delete
-                            </a>
+                            </a> -->
                         </td>
                     </tr>
                     </tbody>

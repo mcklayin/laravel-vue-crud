@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">Players list</div>
             <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" v-if="hasPlayers">
                     <thead>
                     <tr>
                         <th>First Name</th>
@@ -29,6 +29,7 @@
                     </tr>
                     </tbody>
                 </table>
+                <h4 v-else>No Data</h4>
             </div>
         </div>
     </div>
@@ -47,8 +48,12 @@
       ...mapGetters({
         players: FETCH_PLAYERS,
       }),
+      hasPlayers() {
+        return this.players.length;
+      }
     },
     methods: {
+
     }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div v-show="loaded">
+    <div v-show="isLoaded">
         <div class="form-group">
             <button
                     type="button"
@@ -29,26 +29,23 @@
     components: {
       PlayerIndex
     },
-    data() {
-      return {
-        loaded: false
-      };
-    },
     mounted() {
       this.getTeamWithPlayers();
-      this.loaded = true;
     },
     computed: {
       ...mapGetters({
         team: FETCH_TEAM_WITH_PLAYERS,
       }),
+      isLoaded() {
+        return this.team && this.team.id === this.id();
+      }
     },
     methods: {
       id() {
         return parseInt(this.$route.params.id);
       },
      async getTeamWithPlayers() {
-       if (!this.team.players) {
+       if (!this.team.players || this.team.id !== this.id()) {
          const data = await this.$store.dispatch(FETCH_TEAM_WITH_PLAYERS, { id: this.id() });
 
          if (data && data.players) {

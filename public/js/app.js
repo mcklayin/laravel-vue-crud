@@ -2464,15 +2464,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     teamId: Number
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     players: _store_players_types__WEBPACK_IMPORTED_MODULE_1__["FETCH_PLAYERS"]
-  })),
+  })), {}, {
+    hasPlayers: function hasPlayers() {
+      return this.players.length;
+    }
+  }),
   methods: {}
 });
 
@@ -2896,18 +2901,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     PlayerIndex: _players_PlayerIndex_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  data: function data() {
-    return {
-      loaded: false
-    };
-  },
   mounted: function mounted() {
     this.getTeamWithPlayers();
-    this.loaded = true;
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     team: _store_team_types__WEBPACK_IMPORTED_MODULE_3__["FETCH_TEAM_WITH_PLAYERS"]
-  })),
+  })), {}, {
+    isLoaded: function isLoaded() {
+      return this.team && this.team.id === this.id();
+    }
+  }),
   methods: {
     id: function id() {
       return parseInt(this.$route.params.id);
@@ -2921,7 +2924,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this.team.players) {
+                if (!(!_this.team.players || _this.team.id !== _this.id())) {
                   _context.next = 5;
                   break;
                 }
@@ -39905,47 +39908,49 @@ var render = function() {
       _c("div", { staticClass: "card-header" }, [_vm._v("Players list")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table table-bordered table-striped" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.players, function(player, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(player.first_name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(player.last_name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(player.created_at))]),
-                _vm._v(" "),
-                _c(
-                  "td",
-                  [
+        _vm.hasPlayers
+          ? _c("table", { staticClass: "table table-bordered table-striped" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.players, function(player, index) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(player.first_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(player.last_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(player.created_at))]),
+                    _vm._v(" "),
                     _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-xs btn-primary",
-                        attrs: {
-                          to: {
-                            name: "editPlayer",
-                            params: { id: player.id, teamId: _vm.teamId }
-                          }
-                        }
-                      },
+                      "td",
                       [
-                        _vm._v(
-                          "\n                            Edit\n                        "
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "btn btn-xs btn-primary",
+                            attrs: {
+                              to: {
+                                name: "editPlayer",
+                                params: { id: player.id, teamId: _vm.teamId }
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Edit\n                        "
+                            )
+                          ]
                         )
-                      ]
+                      ],
+                      1
                     )
-                  ],
-                  1
-                )
-              ])
-            }),
-            0
-          )
-        ])
+                  ])
+                }),
+                0
+              )
+            ])
+          : _c("h4", [_vm._v("No Data")])
       ])
     ])
   ])
@@ -40300,24 +40305,6 @@ var render = function() {
                             "\n                            Edit\n                        "
                           )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-xs btn-danger",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteEntry(team.id, index)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Delete\n                        "
-                          )
-                        ]
                       )
                     ],
                     1
@@ -40376,8 +40363,8 @@ var render = function() {
         {
           name: "show",
           rawName: "v-show",
-          value: _vm.loaded,
-          expression: "loaded"
+          value: _vm.isLoaded,
+          expression: "isLoaded"
         }
       ]
     },
